@@ -13,16 +13,12 @@ namespace appdemo.Models
         public string? TipoPrecio { get; set; }
         public int? Cantidad { get; set; }
 
-        public decimal Costo { get;}
-        public decimal Tax { get;}
-        public decimal Total { get;}
+        public decimal Costo { get;set;}
+        public decimal Tax { get;set;}
+        public decimal Total { get;set;}
 
-        public Ordenes(string _instrumento, decimal _precio, string _tipoPrecio, int _cantidad)
+        public void CalcularOrden()
         {
-            Instrumento = _instrumento;
-            Precio = _precio;
-            TipoPrecio = _tipoPrecio;
-            Cantidad = _cantidad;
             Costo = (decimal)(Precio * Cantidad);
             Tax = Costo * 0.18m;
             Total = Costo + Tax;

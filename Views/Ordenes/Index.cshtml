@@ -2,6 +2,7 @@
 
 @{
     ViewBag.Title = "Ordenes";
+    var listaOrdenes = ViewData["listaOrdenes"] as List<Ordenes>;
 }
 
 <div class="container">
@@ -25,6 +26,31 @@
                     <button type="submit" class="btn btn-primary">Ordenar</button>
                 </div>                
             </form>
-        </div>        
+        </div>
+        <table class="table table-striped table-bordered table-hover">
+            <thead>
+                <tr>
+                    <th>Instrumento</th>
+                    <th>Precio</th>
+                    <th>Cantidad</th>
+                    <th>Costo</th>
+                    <th>Taxes</th>
+                    <th>Total</th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var orden in listaOrdenes)
+                {
+                    <tr>
+                        <td>@orden.Instrumento</td>
+                        <td>@orden.Precio</td>
+                        <td>@orden.Cantidad</td>
+                        <td>@orden.Costo</td>
+                        <td>@orden.Tax</td>
+                        <td>@orden.Total</td>
+                    </tr>
+                }
+           </tbody>
+        </table>        
     </div> 
 </div>
